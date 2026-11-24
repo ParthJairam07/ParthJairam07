@@ -18,9 +18,9 @@ KEY = "#39d353"
 ACCENT = "#58a6ff"
 FONT = "ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace"
 
-WIDTH = 650
-FONT_SIZE = 13
-LINE_H = 21
+WIDTH = 620
+FONT_SIZE = 15
+LINE_H = 25
 PAD_X = 22
 KEY_W = 12  # characters reserved for the key column
 

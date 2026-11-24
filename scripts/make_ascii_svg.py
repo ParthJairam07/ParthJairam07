@@ -13,7 +13,9 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "parth-ascii.svg"
 
-COLS = 110
+COLS = 92
+# Head-and-shoulders crop of source-prepped.png as (left, top, right, bottom) fractions.
+CROP = (0.12, 0.06, 0.88, 0.78)
 CELL_W = 5.24
 CELL_H = 11.0
 FONT_SIZE = 10.4
@@ -25,13 +27,16 @@ FG = "#c9d1d9"
 BG = "#0d1117"
 BORDER = "#30363d"
 
-ROW_DELAY = 0.055
+ROW_DELAY = 0.045
 ROW_DUR = 0.32
 
 
 def grid() -> list[str]:
     gray = Image.open(ROOT / "source-prepped.png").convert("L")
     mask = Image.open(ROOT / "source-mask.png").convert("L")
+    w, h = gray.size
+    box = (round(CROP[0] * w), round(CROP[1] * h), round(CROP[2] * w), round(CROP[3] * h))
+    gray, mask = gray.crop(box), mask.crop(box)
     w, h = gray.size
     rows = round(COLS * (h / w) * (CELL_W / CELL_H))
     g = np.asarray(gray.resize((COLS, rows), Image.LANCZOS), dtype=np.float32) / 255.0
