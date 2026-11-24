@@ -29,14 +29,14 @@ ROWS = [
     ("Now", "Forward Deployed Engineer @ Turing Labs (YC W20)"),
     ("Prev", "Data Scientist Co-op @ Kenvue (Johnson & Johnson)"),
     ("", "Software Engineer Intern @ Savi-Finance"),
-    ("School", "HBSc Computer Science & Statistics @ UofT ('28)"),
+    ("School", "University of Toronto"),
+    ("", "Computer Science & Statistics (GPA = 3.7)"),
     None,
-    ("Founded", "Eyeris: sold to a hospital for $100K+"),
-    ("", "raised $25K angel pre-seed, team of 6"),
-    ("Built", "bsafe: multi-agent RAG, piloted at Kenvue"),
-    ("Building", "Ember: autonomous wildfire-prevention rover"),
-    ("", "awake: agent-aware keep-awake app for Mac"),
-    ("Speaking", "50+ ML keynotes & workshops"),
+    ("Founded", "Eyeris: sold to a hospital"),
+    ("", "raised an angel pre-seed round"),
+    ("Clubs", "Co-President, UofT Creator Club"),
+    ("", "Director of Academics, GDSC"),
+    ("", "VP of AI, Neuravia Research Inc."),
     ("Mentor", "HackThe6ix, HuskyHacks, UofTHacks"),
     None,
     ("Langs", "Python, TypeScript, Kotlin, Go, C/C++"),
@@ -44,10 +44,23 @@ ROWS = [
     ("ML", "PyTorch, LangChain, XGBoost, Databricks"),
     ("Cloud", "Docker, Google Cloud Run, Azure, CI/CD"),
     None,
+    ("Instagram", "40K followers · tech & building in public"),
     ("Web", "parthjairam.codes"),
     ("LinkedIn", "linkedin.com/in/parth-jairam"),
     ("Email", "parth.jairam06@gmail.com"),
 ]
+
+ICON = 15
+
+
+def instagram_logo(x: float, y: float) -> str:
+    s = ICON
+    return (
+        f'<g transform="translate({x:.1f},{y:.1f})">'
+        f'<rect x="0.9" y="0.9" width="{s - 1.8}" height="{s - 1.8}" rx="4.2" fill="none" stroke="url(#ig)" stroke-width="1.8"/>'
+        f'<circle cx="{s / 2}" cy="{s / 2}" r="3.3" fill="none" stroke="url(#ig)" stroke-width="1.8"/>'
+        f'<circle cx="{s - 4}" cy="4" r="1.1" fill="url(#ig)"/></g>'
+    )
 
 SWATCHES = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353", "#69f0a0", "#58a6ff", "#d2a8ff"]
 
@@ -89,10 +102,15 @@ def main() -> None:
             y += LINE_H // 2
             continue
         key, val = row
+        tx = vx
+        icon = ""
+        if key == "Instagram":
+            icon = instagram_logo(vx, y - ICON + 3)
+            tx = vx + ICON + 7
         k = f'<tspan fill="{KEY}" font-weight="bold">{escape(key)}</tspan><tspan fill="{MUTED}">:</tspan>' if key else ""
         line(
             f'<text x="{PAD_X}" y="{y}">{k}</text>'
-            f'<text x="{vx:.1f}" y="{y}" fill="{FG}">{escape(val)}</text>'
+            f'{icon}<text x="{tx:.1f}" y="{y}" fill="{FG}">{escape(val)}</text>'
         )
         y += LINE_H
     y += 6
@@ -107,6 +125,10 @@ def main() -> None:
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{WIDTH}" height="{height}" '
         f'viewBox="0 0 {WIDTH} {height}">',
         f"<style>{''.join(css)}</style>",
+        '<defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0">'
+        '<stop offset="0" stop-color="#feda75"/><stop offset=".35" stop-color="#fa7e1e"/>'
+        '<stop offset=".6" stop-color="#d62976"/><stop offset=".8" stop-color="#962fbf"/>'
+        '<stop offset="1" stop-color="#4f5bd5"/></linearGradient></defs>',
         f'<rect x="0.5" y="0.5" width="{WIDTH - 1}" height="{height - 1}" rx="10" fill="{BG}" stroke="{BORDER}"/>',
         '<circle cx="18" cy="15" r="5" fill="#ff5f56"/><circle cx="34" cy="15" r="5" fill="#ffbd2e"/>'
         '<circle cx="50" cy="15" r="5" fill="#27c93f"/>',

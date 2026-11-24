@@ -11,7 +11,7 @@
 <table>
   <tr>
     <td valign="top"><img src="./parth-ascii.svg" width="370" alt="ASCII portrait of Parth Jairam" /></td>
-    <td valign="top"><img src="./info-card.svg" width="490" alt="Parth Jairam: Forward Deployed Engineer @ Turing Labs (YC W20), UofT CS & Statistics" /></td>
+    <td valign="top"><img src="./info-card.svg" width="490" alt="Parth Jairam: Forward Deployed Engineer @ Turing Labs (YC W20), University of Toronto CS & Statistics" /></td>
   </tr>
 </table>
 
