@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+source-photo.jpg
+source-prepped.png
+source-mask.png
+*.HEIC
