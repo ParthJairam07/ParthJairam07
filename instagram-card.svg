@@ -28,5 +28,5 @@
 <text class="u" x="257.0" y="284" fill="#8b949e" font-size="15" text-anchor="middle" style="animation-delay:1.70s">followers</text>
 <text x="144.5" y="321" fill="#e6edf3" font-size="15" clip-path="url(#type)">tech &amp; building in public</text>
 <rect class="c" x="144.5" y="308" width="8" height="16" fill="#39d353" opacity="0"><set attributeName="opacity" to="1" begin="3.1s"/><animate attributeName="x" begin="3.1s" dur="1.1s" fill="freeze" calcMode="discrete" values="144.5;153.5;162.5;171.5;180.5;189.5;198.5;207.5;216.5;225.5;234.5;243.5;252.5;261.5;270.5;279.5;288.5;297.5;306.5;315.5;324.5;333.5;342.5;351.5;360.5;369.5"/></rect>
-<g class="u" style="animation-delay:4.30s"><g class="b"><rect x="172.0" y="356" width="170" height="42" rx="21.0" fill="url(#ig)"/><text x="257.0" y="383" fill="#ffffff" font-size="16" font-weight="bold" text-anchor="middle">Follow ↗</text></g></g>
+<g class="u" style="animation-delay:4.30s"><g class="b"><rect x="172.0" y="356" width="170" height="42" rx="21.0" fill="url(#ig)"/><text x="257.0" y="383" fill="#ffffff" font-size="16" font-weight="bold" text-anchor="middle">Follow my journey ↗</text></g></g>
 </svg>
